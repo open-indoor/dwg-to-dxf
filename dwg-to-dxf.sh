@@ -10,6 +10,7 @@ while [ ! -e /tmp/.X11-unix/X99 ]; do sleep 0.1; done
 export DXF_ENCODING=UTF-8
 export XDG_RUNTIME_DIR='/tmp/runtime-root'
 
+set -x
 for folder in $(find /data -type f -name "*.dwg" -exec dirname {} \; | sort -u); do
     DISPLAY=:99.0 ODAFileConverter \
         "${folder}" \
